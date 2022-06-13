@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyCloset1</title>
+    <style>
+        *{
+            margin: 0; padding: 0; box-sizing: border-box; font-family: 'Gothic A1', sans-serif;
+            text-decoration: none; list-style: none;
+        }
+        #header{
+           width: 794px;
+           height: 70px;
+           display: block;
+           margin-left: auto;
+           margin-right: auto;
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+        }
+        #header .nav_logo{
+            width: 80px;
+            height: 32px;
+        }
+        .nav_menu li a{
+            color: #757575;
+            text-transform:uppercase;
+            vertical-align: middle;
+        }
+        .nav_menu {
+            display: flex;
+            margin-top: 4px;
+        }
+        .nav_menu li{
+            padding: 8px 20px;
+            font-size: 14px;
+        }
+        .nav_icon{
+            display: flex;
+            margin-top: 4px;
+        }
+        .nav_icon li{
+            padding: 8px 12px;
+        }
+        .nav_icon li a{
+            width: 20px;
+            height: 20px;
+        }
+        .nav_menu li a:after {
+        display:block;
+        content: '';
+        border-bottom: solid 3px #ffc400;  
+        transform: scaleX(0);  
+        transition: 350ms ease-in-out;
+        }
+        .nav_menu li a:hover:after { transform: scaleX(1);  }
+        .nav_menu li a:after{  transform-origin:  0% 50%; }
+        #banner{
+            height: 440px;
+            background-image: url(https://i.postimg.cc/dQT5LygP/banner.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+           
+        }
+        .arrow img{
+           padding-top: 176px;
+        }
+        .arrow .right{
+            float: right;
+            padding-right: 40px;
+            opacity: 0.5;
+        }
+        .arrow .left{
+            float: left;
+            padding-left: 40px;
+            opacity: 0.5;
+        }
+        #best{
+            width: 996px;
+            margin-top: 80px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+        .best3{
+            display: flex;
+            width: 813px;
+            justify-content: space-between;
+            margin-left: 80px;
+            margin-top: 72px;
+            text-align: center;
+        }
+        .best3 img{
+            width: 205px;
+            height: 251px;
+            border-radius: 20px;
+            transition: all 0.2s linear;
+        }
+        .best3 :hover img{
+            transform: scale(1.05);
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.3);
+            
+        }
+        .best3 h2{
+            font-size: 18px;
+            margin-top: 12px;
+            margin-bottom: 6px;
+            color: rgb(36, 36, 36);
+            font-weight: 500;
+        }
+        .best3 h3{
+            font-size: 14px;
+            font-weight: 400;
+            margin-bottom: 4px;
+            color: black;
+        }
+        .best3 p{
+            font-size: 14px;
+            font-weight: 200;
+            color: #505050;
+        }
+        .besttext{
+            display: flex;
+            justify-content: space-between;
+            vertical-align: middle;
+        }
+        .besttext p{
+            color: #757575;
+        }
+        .besttext a :hover{
+            color: black;
+        }
+        .besttext h1{
+            padding-bottom: 8px;
+            font-size: 24px;
+            color: #e4ab1c;
+            font-weight: 600;
+            border-bottom: 2px solid #e4ab1c;
+        }
+        .gray{
+            color: #808080;
+            font-size: 14px;
+            font-weight: 200;
+        }
+        
+        #test{
+            margin-top: 80px;
+            background-image: url(https://i.postimg.cc/L4rPwhqy/realtest.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 1200px;
+            height: 400px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+        }
+        #test h1{
+            position: absolute;
+            color: white;
+            font-size: 32px;
+            font-weight: 500;
+            top: 84px;
+            left: 635px;
+        }
+        #test p{
+            position: absolute;
+            color: white;
+            font-size: 20px;
+            font-weight: 200;
+            top: 148px;
+            left: 609px;
+            text-align: center;
+        }
+        #test h2{
+            position: absolute;
+            color: white;
+            font-size: 16px;
+            font-weight: 200;
+            left: 714px;
+            top: 272px;
+            padding: 10px 25px;
+            border: 2px solid white;
+            border-radius: 30px;
+        }
+        #test h3{
+            position: absolute;
+            color: white;
+            font-size: 16px;
+            font-weight: 200;
+            top: 272px;
+            left: 884px;
+            padding: 10px 25px;
+            border: 2px solid white;
+            border-radius: 30px;
+        }
+        #test a :hover{
+            border: 2px solid gray;
+            color: gray;
+            transition: 0.3s ease;
+        }
+        .styletext p{
+            color: #757575;
+        }
+        .styletext a :hover{
+            color: black;
+        }
+        .styletext h1{
+            padding-bottom: 8px;
+            font-size: 24px;
+            color: #e4ab1c;
+            font-weight: 600;
+            border-bottom: 2px solid #e4ab1c;
+        }
+        #style{
+            width: 1000px;
+            height: 1161px;
+            margin-top: 80px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+        .styleimg span{
+            font-size: 30px;
+        }
+        .styletext{
+            display: flex;
+            width: 995px;
+            justify-content: space-between;
+        }
+        .styleimg img{
+            float: left;
+        }
+        .styleimg a{
+            float: left;
+        }
+        .styleimg {
+            margin-top: 80px;
+            width: 1000px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            
+        }
+        .styleimg .mod{
+            background-image: url(https://i.postimg.cc/vZ8d15fH/Rectangle-754.png);
+            width: 248px;
+            height: 248px;
+            display: block;
+        }
+        .styleimg .ame{
+            background-image: url(https://i.postimg.cc/LXQVTK0b/image.png);
+            width: 493px;
+            height: 248px;
+            display: block;
+        }
+        .styleimg .cas{
+            background-image: url(https://i.postimg.cc/ydRFFgck/image.png);
+            width: 248px;
+            height: 248px;
+            display: block;
+        }
+        .styleimg .str{
+            background-image: url(https://i.postimg.cc/J7Php7xn/st.png);
+            width: 373px;
+            height: 248px;
+            display: block;
+        }
+        .styleimg .vin{
+            background-image: url(https://i.postimg.cc/5td9XX4P/vin.png);
+            width: 248px;
+            height: 248px;
+            display: block;
+        }
+        .styleimg .mini{
+            background-image: url(https://i.postimg.cc/VvVmm6ZW/mini.png);
+            width: 368px;
+            height: 248px;
+            display: block;
+        }
+        .styleimg .fem{
+            background-image: url(https://i.postimg.cc/RVJdzLdJ/image.png);
+            width: 248px;
+            height: 496px;
+            display: block;
+            background-repeat: no-repeat;
+        }
+        .styleimg .boh{
+            background-image: url(https://i.postimg.cc/JhDdYCFv/image.png);
+            width: 248px;
+            height: 248px;
+            display: block;
+        }
+        .styleimg .tom{
+            background-image: url(https://i.postimg.cc/CxftRygF/xh.png);
+            width: 245px;
+            height: 248px;
+            display: block;
+        }
+        .styleimg .fun{
+            background-image: url(https://i.postimg.cc/T1ZFtWHF/pun.png);
+            width: 248px;
+            height: 248px;
+            display: block;
+        }
+        .styleimg .cla{
+            background-image: url(https://i.postimg.cc/XvSFnNTW/class.png);
+            width: 372px;
+            height: 248px;
+            display: block;
+        }
+        .styleimg .spo{
+            background-image: url(https://i.postimg.cc/jSLTvkY9/image.png);
+            width: 369px;
+            height: 248px;
+            display: block;
+        }
+        .styleimg .mod p{
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 170px;
+            color: white;
+            padding-bottom: 20PX;
+            padding-left: 20PX;
+            opacity: 0;
+        }
+        .styleimg .ame p{
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 170px;
+            color: white;
+            padding-bottom: 20PX;
+            padding-left: 20PX;
+            opacity: 0;
+        }
+        .styleimg .cas p{
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 170px;
+            color: white;
+            padding-bottom: 20PX;
+            padding-left: 20PX;
+            opacity: 0;
+        }
+        .styleimg .str p{
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 170px;
+            color: white;
+            padding-bottom: 20PX;
+            padding-left: 20PX;
+            opacity: 0;
+        }
+        .styleimg .cla p{
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 170px;
+            color: white;
+            padding-bottom: 20PX;
+            padding-left: 20PX;
+            opacity: 0;
+        }
+        .styleimg .spo p{
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 170px;
+            color: white;
+            padding-bottom: 20PX;
+            padding-left: 20PX;
+            opacity: 0;
+        }
+        .styleimg .vin p{
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 170px;
+            color: white;
+            padding-bottom: 20PX;
+            padding-left: 20PX;
+            opacity: 0;
+        }
+        .styleimg .mini p{
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 170px;
+            color: white;
+            padding-bottom: 20PX;
+            padding-left: 20PX;
+            opacity: 0;
+        }
+        .styleimg .fem p{
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 418px;
+            color: white;
+            padding-bottom: 20PX;
+            padding-left: 20PX;
+            opacity: 0;
+        }
+        .styleimg .boh p{
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 170px;
+            color: white;
+            padding-bottom: 20PX;
+            padding-left: 20PX;
+            opacity: 0;
+        }
+        .styleimg .tom p{
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 170px;
+            color: white;
+            padding-bottom: 20PX;
+            padding-left: 20PX;
+            opacity: 0;
+        }
+        .styleimg .fun p{
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 170px;
+            color: white;
+            padding-bottom: 20PX;
+            padding-left: 20PX;
+            opacity: 0;
+        }
+        .styleimg a:hover p{
+            opacity: 1;
+            transition: 0.5s all ease;
+        }
+        .styleimg a p{
+            transition: 0.5s;
+        }
+        .styleimgtext p{
+            color: white;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        #aboutus{
+            background-color: #f0f0f0;
+            margin-top: 100px;
+        }
+        .aboutusbox{
+            width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            padding-top: 80px;
+        }
+        .aboutustitle{
+            display: flex;
+            justify-content: space-between;
+        }
+        .aboutustitle p{
+            color: #757575;
+        }
+        .aboutustitle a :hover{
+            color: black;
+        }
+        .aboutustitle h1{
+            padding-bottom: 8px;
+            font-size: 24px;
+            color: #e4ab1c;
+            font-weight: 600;
+            border-bottom: 2px solid #e4ab1c;}
+        .aboutus1{
+            margin-top: 80px;
+            width: 1000px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .aboutus2{
+            margin-top: 80px;
+            width: 1000px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .aboutus3{
+            margin-top: 80px;
+            width: 1000px;
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 140px;
+        }
+        #aboutus img{
+            width: 440px;
+        }
+        .aboutus1 p{
+            text-align: justify;
+            font-size: 16px;
+            padding-top: 30px;
+        }
+        .aboutus3 p{
+            text-align: justify;
+            font-size: 16px;
+            padding-top: 30px;
+        }
+        .aboutus2 p{
+            text-align: justify;
+            font-size: 16px;
+            padding-top: 30px;
+        }
+        .aboutustext{
+            width: 386px;
+            padding-top: 58px;
+        }
+        .aboutustext h2{
+            font-size: 24px;
+            font-weight: 800;
+        }
+        #footer{
+            background-color: #505050;
+            height: 320px;
+            text-align: center;
+        }
+        #footer .sns{
+            padding-top: 60px;
+            padding-bottom: 36px;
+        }
+        .sns a{
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+        .footernav{
+            padding-bottom: 36px;
+        }
+        .footernav a{
+            text-align: center;
+            color: white;
+            font-weight: 100;
+            font-size: 14px;
+        }
+        .footerinfo{
+            color: white;
+            font-weight: 100;
+            font-size: 14px;
+        }
+        .small{
+            font-size: 10px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="header">
+        <div class="nav_logo">
+            <A href="index1.html">
+                <img src="https://i.postimg.cc/B6hWBGn3/image.png" alt="logo">
+            </A>
+        </div>
+        <ul class="nav_menu">
+            <li><a href="index2.html">Women</a></li>
+            <li><a href="#">Men</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="index3.html">Lookbook</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+        <ul class="nav_icon">
+            <li>
+                <a href="#" >
+                    <img src="https://i.postimg.cc/QCc8DJGC/heart.png">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="https://i.postimg.cc/W3dsf7Yx/account-circle-FILL0-wght400-GRAD0-opsz48-1.png">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="https://i.postimg.cc/qBCksj33/search-FILL0-wght400-GRAD0-opsz48-1.png">
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div id="banner">
+        <div class="arrow">
+            <a href="#"><img src="https://i.postimg.cc/X7GykK4x/image.png" class="left"></a>
+            <a href="#"><img src="https://i.postimg.cc/VLx0GSNw/image.png" class="right"></a>
+        </div>
+    </div>
+    <div id="best">
+        <div class="besttext">
+        <h1>Today’s Best</h1>
+        <a href="#"><p>View more &#8250;</p></a>
+        </div>
+        <div class="best3">
+            <div class="bestfirst">
+                <a href="https://black-up.kr/" target="_blank">
+                <img src="https://black-up.kr/web/product/tiny/202010/2de7284d52c15f915b88f0bf86537733.gif">
+                <h2>블랙업</h2>
+                <h3>#스트릿패션 #핸드메이드<br>
+                    ★ 4.8<span class="gray">/5</span></h3>
+                <p>스트릿패션 1위 쇼핑몰!<br>
+                    핸드메이드 팬츠</p>
+                </a>
+            </div>
+            <div class="bestsecond">
+                <a href="http://www.leelin.co.kr/?_sta1=MUwwTDEwMDFMU0wxNTI0TDBMMEwwTE5MMDAw" target="_blank">
+                <img src="http://cdn1-aka.makeshop.co.kr/shopimages/leelin/0050000024083.gif?1651655475">
+                <h2>리린</h2>
+                <h3>#페미닌 #러블리<br>
+                    ★ 4.5<span class="gray">/5</span></h3>
+                <p>페미닌룩 맛집<br>
+                샤랄라 미시스타일</p>
+                </a>
+            </div>
+            <div class="bestthrid">
+                <a href="https://ba-on.com/" target="_blank">
+                <img src="https://www.ba-on.com/web/product/big/202109/2d9e97ecc11c2469d2f9569bbba58f36.gif">
+                <h2>바온</h2>
+                <h3>#아메카지 #10대 #20대<br>
+                    ★ 4.6<span class="gray">/5</span></h3>
+                <p>요즘은 아메카지가 대세!<br>
+                    키작은 여자 쇼핑몰</p>
+                </a>
+            </div>
+        </div>
+        
+    </div>
+    <div id="test">
+        <h1>나의 패션 성향을 모르겠다면?</h1>
+        <p>패션 성향 테스트를 통해 나의 패션 스타일을 알아본다.<br>
+            나와 어울리는 패션을 알아보고, 분석해보자!</p>
+        <a href="#"><h2>START</h2></a>
+        <a href="#"><h3>SHARE</h3></a>
+    </div>
+    <div id="style">
+        <div class="styletext">
+            <h1>Choose your Style</h1>
+            <a href="index2.html"><p>View more &#8250;</p></a>
+        </div>
+        <div class="styleimg">
+            <a href="index2.html" class="mod"><p><span>모던</span><br>#현대적 #세련 #시크</p></a>
+            <a href="index2.html" class="ame"><p><span>아메카지</span><br>#일본 복고 #아메리칸 캐주얼</p></a>
+            <a href="index2.html" class="cas"><p><span>캐주얼</span><br>#편안 #활동적 #노멀</p></a>
+            <a href="index2.html" class="str"><p><span>스트릿</span><br>#자유로움 #개성 #트렌드</p></a>
+            <a href="index2.html" class="vin"><p><span>빈티지</span><br>#옛날 감성 #자유로움</p></a>
+            <a href="index2.html" class="mini"><p><span>미니멀</span><br>#심플 #깔끔 #무난</p></a>
+            <a href="index2.html" class="fem"><p><span>페미닌</span><br>#여성스러운 #우아한</p></a>
+            <a href="index2.html" class="boh"><p><span>보헤미안</span><br>#개성 #자유로움</p></a>
+            <a href="index2.html" class="tom"><p><span>톰보이</span><br>#담백 #편안 #보이쉬</p></a>
+            <a href="index2.html" class="fun"><p><span>펑크</span><br>#독특 #와일드 #개성</p></a>
+            <a href="index2.html" class="cla"><p><span>클래식</span><br>#전통적 #깔끔 #세련</p></a>
+            <a href="index2.html" class="spo"><p><span>스포티</span><br>#편안 #활동적 #실용적</p></a>
+        </div>
+        
+    </div>
+    <div id="aboutus">
+        <div class="aboutusbox">
+            <div class="aboutustitle">
+                <h1>About us</h1>
+                <a href="#"><p>View more &#8250;</p></a>
+            </div>
+            <div class="aboutus1">
+                <img src="https://i.postimg.cc/dQCX4Pfg/au1.png">
+                <div class="aboutustext">
+                <h2>쇼핑을 편하게!</h2>
+                <p>다른 쇼핑몰과는 차별화를 두어 제작되었습니다. 쇼핑을 시작하기 어렵고, 막막하신 분들을 위해 만들어진 쇼핑 사이트입니다. 나만의 쇼핑몰을 찾고 나만의 옷장을 채워보세요.</p>
+                </div>
+            </div>
+            <div class="aboutus2">
+                <div class="aboutustext">
+                <h2>쇼핑을 재미있게!</h2>
+                <p>현재 자신의 패션 스타일을 모르시는 분들에게 패션 성향 테스트를 통해 자신의 패션 성향을 제공하고, 분석
+                    해주어 도움을 줄 수 있습니다. 지금 바로 테스트를 시작해보세요.</p>
+                </div>
+                <img src="https://i.postimg.cc/HsZQMj2m/au2.png">
+            </div>
+            <div class="aboutus3">
+                <img src="https://i.postimg.cc/0j5wMqKr/au3.png">
+                <div class="aboutustext">
+                <h2>믿을 만한 쇼핑몰만!</h2>
+                <p>‘My Closet’에 있는 모든 쇼핑몰들을 판매 인증을 받았으며, 고객들에게 많은 사랑을 받고 있는 쇼핑몰들로만 이루어져 있습니다. 어떤 쇼핑몰이든 마음 놓고 구매하실 수 있습니다.
+                </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="sns">
+            <a href="https://www.facebook.com/" target="_blank"><img src="https://i.postimg.cc/d0J1sc7f/vpqnr.png"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img src="https://i.postimg.cc/gj3jczKf/Instagram.png"></a>
+            <a href="https://twitter.com/?lang=ko" target="_blank"><img src="https://i.postimg.cc/05Sb0nqc/Twiiter.png"></a>
+        </div>
+        <div class="footernav">
+            <a href="#"><p>My Closet 소개 ㅣ 이용약관 ㅣ 개인정보 처리방침  ㅣ 사이트맵 ㅣ 인재채용</p></a>
+        </div>
+        <div class="footerinfo">
+            <p>사업자 등록번호 : 231-33-1253 ㅣ 통신판매업신고번호 : 제5142-서울마포-2322호<br>
+                연락처 : 02) 6041-5325 ㅣ 팩스 : 321-1524-5342 ㅣ 이메일 : tuk@naver.com<br>
+                주소 : 서울특별시 마포구 동교로 126 태양빌딩 3F<br><br>
+                <span class="small">CopyrightⓒMYCLOSET Corp. All Rights Reserved</span></p>
+        </div>
+    </div>
+
+</body>
+</html>

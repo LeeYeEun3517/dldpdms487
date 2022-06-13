@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyCloset3</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0; padding: 0; box-sizing: border-box; font-family: 'Gothic A1', sans-serif;
+            text-decoration: none; list-style: none;
+        }
+        #header{
+           width: 794px;
+           height: 70px;
+           display: block;
+           margin-left: auto;
+           margin-right: auto;
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+        }
+        #header .nav_logo{
+            width: 80px;
+            height: 32px;
+        }
+        .nav_menu li a{
+            color: #757575;
+            text-transform:uppercase;
+            vertical-align: middle;
+        }
+        .nav_menu {
+            display: flex;
+            margin-top: 4px;
+        }
+        .nav_menu li{
+            padding: 8px 20px;
+            font-size: 14px;
+        }
+        .nav_icon{
+            display: flex;
+            margin-top: 4px;
+        }
+        .nav_icon li{
+            padding: 8px 12px;
+        }
+        .nav_icon li a{
+            width: 20px;
+            height: 20px;
+        }
+        .nav_menu li a:after {
+        display:block;
+        content: '';
+        border-bottom: solid 3px #ffc400;  
+        transform: scaleX(0);  
+        transition: 350ms ease-in-out;
+        }
+        .nav_menu li a:hover:after { transform: scaleX(1);  }
+        .nav_menu li a:after{  transform-origin:  0% 50%; }
+        #banner{
+            height: 440px;
+            background-image: url(https://i.postimg.cc/Cx6cfNzm/banner3.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+           
+        }
+        .arrow img{
+           padding-top: 176px;
+        }
+        .arrow .right{
+            float: right;
+            padding-right: 40px;
+            opacity: 0.5;
+        }
+        .arrow .left{
+            float: left;
+            padding-left: 40px;
+            opacity: 0.5;
+        }
+        .besttitle{
+            margin-top: 80px;
+            padding-bottom: 140px;
+        }
+        .besttitle ul{
+            text-align: center;
+        }
+        .besttitle ul li{
+            float: left;
+        }
+        .besttitle ul li a{
+            color: #7c7c7c;
+            padding: 0px 18px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        .besttitle ul li a:hover{
+            color: #ffbb00;
+            transition: 0.3s ease;
+        }
+        .besttitle ul li:not(:last-child){
+            border-right: 1px solid #cacaca;
+        }
+        #beststyle{
+            width: 996px;
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        #lookbook{
+            width: 996px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .lookbook1{
+            margin-bottom: 160px;
+        }
+        .number h2{
+            font-size: 20px;
+            color: #888888;
+            font-weight: 300;
+            margin-bottom: 32px;
+        }
+        .text1 h1{
+            font-size: 36px;
+            color: #3b3b3b;
+            font-weight: 400;
+        }
+        .img1{
+            width: 332px;
+            height: 600px;
+            background-image: url(https://i.postimg.cc/kX3hShZT/1.png);
+            display: block;
+        }
+        .img2{
+            width: 332px;
+            height: 600px;
+            background-image: url(https://i.postimg.cc/jdntx9fv/2.png);
+            display: block;
+        }
+        .img3{
+            width: 332px;
+            height: 600px;
+            background-image: url(https://i.postimg.cc/h4zGNGK3/3.png);
+            display: block;
+        }
+        .img1 p{
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 190px;
+            padding-bottom: 138px;
+            padding-left: 92px;
+            padding-right: 93px;
+            color: white;
+            opacity: 0;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 100;
+            line-height: 28px;
+        }
+        .img1 a:hover p{
+            opacity: 1;
+            transition: 0.5s all ease;
+        }
+        .img1 a p{
+            transition: 0.5s;
+        }
+        .img2 p{
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 190px;
+            padding-bottom: 138px;
+            padding-left: 87px;
+            padding-right: 87px;
+            color: white;
+            opacity: 0;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 100;
+            line-height: 28px;
+        }
+        .img2 a:hover p{
+            opacity: 1;
+            transition: 0.5s all ease;
+        }
+        .img2 a p{
+            transition: 0.5s;
+        }
+        .img3 p{
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 190px;
+            padding-bottom: 138px;
+            padding-left: 77px;
+            padding-right: 78px;
+            color: white;
+            opacity: 0;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 100;
+            line-height: 28px;
+        }
+        .img3 a:hover p{
+            opacity: 1;
+            transition: 0.5s all ease;
+        }
+        .img3 a p{
+            transition: 0.5s;
+        }
+        .text1{
+            margin-bottom: 40px;
+        }
+        .text1 h2{
+            text-align: right;
+            display: inline-block;
+            color: #888888;
+            font-size: 20px;
+            font-weight: 300;
+            margin-left: 590px;
+        }
+        .text1 h1{
+            display: inline-block;
+        }
+        
+        .lookbookimg a{
+            float: left;
+        }
+        .lookbookimg {
+            position: relative;
+            width: 996px;
+            display: flex;
+        }
+        .big{
+            font-size: 28px;
+            font-weight: 300;
+            line-height: 60px;
+        }
+        .smalll{
+            font-size: 12px;
+            font-weight: 200;
+            line-height: 100px;
+        }
+        .lbimg2{
+            background-image: url(https://i.postimg.cc/g03bR46v/rerererere.png);
+            width: 600px;
+            height: 400px;
+            border-radius: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .lbimg3{
+            background-image: url(https://i.postimg.cc/L5bbGZ19/1111111111111111.png);
+            width: 600px;
+            height: 400px;
+            border-radius: 40px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 200px;
+        }
+        .line1{
+            display: flex;
+            justify-content: space-between;
+        }
+        .line2{
+            display: flex;
+            justify-content: space-between;
+            padding-top: 40px;
+        }
+        .text2{
+            padding-top: 70px;
+        }
+        
+        .text2 h2{
+            font-size: 20px;
+            font-weight: 300;
+            color: #6d6d6d;
+        }
+        .text2 h2:hover{
+            color: black;
+        }
+        .text1 h2:hover{
+            color: black;
+        }
+        .lb3text a h2:hover{
+            color: black;
+        }
+        .text2 h1{
+            font-size: 36px;
+            font-weight: 400;
+            color: #474747;
+        }
+        .text3{
+            padding-top: 157px;
+        }
+        .text3 h3{
+            font-size: 28px;
+            font-weight: 300;
+            color: #474747;
+        }
+        .lbimg2 .baon1{
+            position: absolute;
+            left: 161px;
+            top: 18px;
+        }
+        .lbimg2 .baon2{
+            position: absolute;
+            left: 365px;
+        }
+        .lbimg2 a :hover{
+            transform: scale(1.05);
+            -webkit-transform: scale(1.05);
+            -moz-transform: scale(1.05);
+            -ms-transform: scale(1.05);
+            -o-transform: scale(1.05);
+        }
+        .lbimg2 a img{
+            transition: all 0.3s ease-in-out;
+        }
+        .lbimg3 .baon3{
+            position: absolute;
+            left: 187px;
+            top: 88px;
+        }
+        .lbimg3 .baon4{
+            position: absolute;
+            left: 376px;
+        }
+        .lbimg3 a :hover{
+            transform: scale(1.05);
+            -webkit-transform: scale(1.05);
+            -moz-transform: scale(1.05);
+            -ms-transform: scale(1.05);
+            -o-transform: scale(1.05);
+        }
+        .lbimg3 a img{
+            transition: all 0.3s ease-in-out;
+        }
+        .lookbook3{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 144px;
+        }
+        .lb3img1{
+            width: 200px;
+            height: 400px;
+            background-image: url(https://i.postimg.cc/YC6ZX0bF/last1.png);
+            border-radius: 20px;
+            display: block;
+        }
+        .lb3img2{
+            width: 200px;
+            height: 400px;
+            background-image: url(https://i.postimg.cc/65h4KJ6v/last2.png);
+            border-radius: 20px;
+            display: block;
+        }
+        .lb3img3{
+            width: 200px;
+            height: 400px;
+            background-image: url(https://i.postimg.cc/ZnxnJpmS/last3.png);
+            border-radius: 20px;
+            display: block;
+        }
+        .lb3text{
+            padding-top: 80px;
+        }
+        .lb3text h1{
+            font-size: 36px;
+            font-weight: 400;
+            color: #474747;
+        }
+        .lb3text h2{
+            font-size: 20px;
+            font-weight: 300;
+            color: #6d6d6d;
+        }
+        .lb3img1 p{
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 138px;
+            padding-bottom: 78px;
+            padding-left: 4px;
+            padding-right: 4px;
+            color: white;
+            opacity: 0;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 100;
+            line-height: 28px;
+            border-radius: 20px;
+        }
+        .lb3img1 a:hover p{
+            opacity: 1;
+            transition: 0.5s all ease;
+        }
+        .lb3img1 a p{
+            transition: 0.5s;
+        }
+        .lb3img2 p{
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 156px;
+            padding-bottom: 88px;
+            padding-left: 4px;
+            padding-right: 4px;
+            color: white;
+            opacity: 0;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 100;
+            line-height: 28px;
+            border-radius: 20px;
+        }
+        .lb3img2 a:hover p{
+            opacity: 1;
+            transition: 0.5s all ease;
+        }
+        .lb3img2 a p{
+            transition: 0.5s;
+        }
+        .lb3img3 p{
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 156px;
+            padding-bottom: 88px;
+            padding-left: 4px;
+            padding-right: 4px;
+            color: white;
+            opacity: 0;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 100;
+            line-height: 28px;
+            border-radius: 20px;
+        }
+        .lb3img3 a:hover p{
+            opacity: 1;
+            transition: 0.5s all ease;
+        }
+        .lb3img3 a p{
+            transition: 0.5s;
+        }
+        .page{
+            text-align: center;
+            color: #5F5F5F;
+        }
+        #test{
+            margin-top: 80px;
+            background-image: url(https://i.postimg.cc/L4rPwhqy/realtest.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 1200px;
+            height: 400px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            margin-bottom: 100px;
+        }
+        #test h1{
+            position: absolute;
+            color: white;
+            font-size: 32px;
+            font-weight: 500;
+            top: 84px;
+            left: 635px;
+        }
+        #test p{
+            position: absolute;
+            color: white;
+            font-size: 20px;
+            font-weight: 200;
+            top: 148px;
+            left: 609px;
+            text-align: center;
+        }
+        #test h2{
+            position: absolute;
+            color: white;
+            font-size: 16px;
+            font-weight: 200;
+            left: 714px;
+            top: 272px;
+            padding: 10px 25px;
+            border: 2px solid white;
+            border-radius: 30px;
+        }
+        #test h3{
+            position: absolute;
+            color: white;
+            font-size: 16px;
+            font-weight: 200;
+            top: 272px;
+            left: 884px;
+            padding: 10px 25px;
+            border: 2px solid white;
+            border-radius: 30px;
+        }
+        #test a :hover{
+            border: 2px solid gray;
+            color: gray;
+            transition: 0.3s ease;
+        }
+        #footer{
+            background-color: #505050;
+            height: 320px;
+            text-align: center;
+        }
+        #footer .sns{
+            padding-top: 60px;
+            padding-bottom: 36px;
+        }
+        .sns a{
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+        .footernav{
+            padding-bottom: 36px;
+        }
+        .footernav a{
+            text-align: center;
+            color: white;
+            font-weight: 100;
+            font-size: 14px;
+        }
+        .footerinfo{
+            color: white;
+            font-weight: 100;
+            font-size: 14px;
+        }
+        .small{
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="nav_logo">
+            <A href="index1.html">
+                <img src="https://i.postimg.cc/B6hWBGn3/image.png" alt="logo">
+            </A>
+        </div>
+        <ul class="nav_menu">
+            <li><a href="index2.html">Women</a></li>
+            <li><a href="#">Men</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="index3.html">Lookbook</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+        <ul class="nav_icon">
+            <li>
+                <a href="#" >
+                    <img src="https://i.postimg.cc/QCc8DJGC/heart.png">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="https://i.postimg.cc/W3dsf7Yx/account-circle-FILL0-wght400-GRAD0-opsz48-1.png">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="https://i.postimg.cc/qBCksj33/search-FILL0-wght400-GRAD0-opsz48-1.png">
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div id="banner">
+        <div class="arrow">
+            <a href="#"><img src="https://i.postimg.cc/X7GykK4x/image.png" class="left"></a>
+            <a href="#"><img src="https://i.postimg.cc/VLx0GSNw/image.png" class="right"></a>
+        </div>
+    </div>
+    <div id="beststyle">
+        <div class="besttitle">
+            <ul>
+                <li><a href="#">스포티</a></li>
+                <li><a href="#">클래식</a></li>
+                <li><a href="#">캐주얼</a></li>
+                <li><a href="#">스트릿</a></li>
+                <li><a href="#">미니멀</a></li>
+                <li><a href="#">톰보이</a></li>
+                <li><a href="#">빈티지</a></li>
+                <li><a href="#">모던</a></li>
+                <li><a href="#">보헤미안</a></li>
+                <li><a href="#">페미닌</a></li>
+                <li><a href="#">아메카지</a></li>
+                <li><a href="#">펑크</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="lookbook">
+        <div class="lookbook1">
+            <div class="number">
+                <h2>01</h2>
+            </div>
+            <br>
+            <div class="text1">
+                <h1>VINVLE’s<br>
+                Lovely Lookbook</h1><a href="http://vinvle.com/" target="_blank"><h2>빈블 바로가기 ></h2></a>
+            </div>
+            <div class="lookbookimg">
+            <div class="img1">
+                <a href="#" class="img11"><p><span class="big">01</span><br>반팔 셔츠 원피스 위에<br>
+                    끈 나시 원피스를 흘러<br>
+                    내리는 듯한 느낌으로<br>
+                    레이어드한 스타일<br><span class="smalll">더보기 ></span></p>
+                </a>
+            </div>
+            <div class="img2">
+                <a href="#" class="img12"><p><span class="big">02</span><br>반팔 티셔츠나<br>
+                    반팔 원피스 위에<br>
+                    체크무늬 나시 원피스를<br>
+                    입은 깜찍한 스타일<br><span class="smalll">더보기 ></span></p>
+                </a>
+            </div>
+            <div class="img3">
+                <a href="#" class="img13"><p><span class="big">03</span><br>박시한 하얀 셔츠와<br>
+                    밝은 베이지 색 스커트를<br>
+                    매치하여 어두운 베이지<br>
+                    비니로 포인트를 준 스타일<br><span class="smalll">더보기 ></span></p>
+                </a>
+            </div>
+        </div>
+        </div>
+        <div class="lookbook2">
+            <div class="line1">
+                <div class="text2">
+                    <h2>02</h2>
+                    <br><br>
+                    <h1>BAON’s<br>
+                        Special Lookbook</h1><br><Br>
+                    <a href="https://ba-on.com/" target="_blank"><h2>바온 바로가기 ></h2></a>
+                </div>
+                <div class="lbimg2">
+                    <a href="#" class="baon1"><img src="https://i.postimg.cc/KcP7VTtJ/qqq.png"></a>
+                    <a href="#" class="baon2"><img src="https://i.postimg.cc/KY3B53Z7/qqqq.png"></a>
+                </div>
+            </div>
+            <div class="line2">
+                <div class="lbimg3">
+                    <a href="#" class="baon3"><img src="https://i.postimg.cc/XJmCBjMH/333.png"></a>
+                    <a href="#" class="baon4"><img src="https://i.postimg.cc/nLwsNFLF/44.png"></a>
+                </div>
+                <div class="text3">
+                    <h3>Summer Handmade<br>New Arrivals !</h3>
+                </div>
+            </div>
+        </div>
+        <div class="lookbook3">
+            <div class="lb3img1">
+                <a href="#"><p>사랑스러운 체크 남방과<br> 
+                    어디에나 어울리는<br>
+                    나일론 소재의 롱 스커트<br><span class="smalll">더보기 ></span></p></a>
+            </div>
+            <div class="lb3img2">
+                <a href="#"><p>데님 청바지와 귀여운<br>
+                    꽃무늬의 롱 나시 원피스<br><span class="smalll">더보기 ></span></p></a>
+            </div>
+            <div class="lb3img3">
+                <a href="#"><p>검정 목티와 청바지,<br>
+                    그 위에 샤랄라 끈 나시 원피스<br><span class="smalll">더보기 ></span></p></a>
+            </div>
+            <div class="lb3text">
+                <h2>03</h2><Br><br>
+                    <h1>LOVEANDPOP’s<br>
+                    Unique Lookbook</h1><br><br>
+                    <a href="https://www.loveandpop.kr/" target="_blank"><h2>러브앤드팝 바로가기 ></h2></a>
+            </div>
+        </div>
+        </div>
+        <a href="#" class="page"><p>1 &nbsp;  2  &nbsp; 3 &nbsp;   4 &nbsp;  5 &nbsp; &gt; </p></a>
+        <div id="test">
+            <h1>나의 패션 성향을 모르겠다면?</h1>
+            <p>패션 성향 테스트를 통해 나의 패션 스타일을 알아본다.<br>
+                나와 어울리는 패션을 알아보고, 분석해보자!</p>
+            <a href="#"><h2>START</h2></a>
+            <a href="#"><h3>SHARE</h3></a>
+        </div>
+        <div id="footer">
+            <div class="sns">
+                <a href="https://www.facebook.com/" target="_blank"><img src="https://i.postimg.cc/d0J1sc7f/vpqnr.png"></a>
+                <a href="https://www.instagram.com/" target="_blank"><img src="https://i.postimg.cc/gj3jczKf/Instagram.png"></a>
+                <a href="https://twitter.com/?lang=ko" target="_blank"><img src="https://i.postimg.cc/05Sb0nqc/Twiiter.png"></a>
+            </div>
+            <div class="footernav">
+                <a href="#"><p>My Closet 소개 ㅣ 이용약관 ㅣ 개인정보 처리방침  ㅣ 사이트맵 ㅣ 인재채용</p></a>
+            </div>
+            <div class="footerinfo">
+                <p>사업자 등록번호 : 231-33-1253 ㅣ 통신판매업신고번호 : 제5142-서울마포-2322호<br>
+                    연락처 : 02) 6041-5325 ㅣ 팩스 : 321-1524-5342 ㅣ 이메일 : tuk@naver.com<br>
+                    주소 : 서울특별시 마포구 동교로 126 태양빌딩 3F<br><br>
+                    <span class="small">CopyrightⓒMYCLOSET Corp. All Rights Reserved</span></p>
+            </div>
+        </div>
+</body>
+</html>

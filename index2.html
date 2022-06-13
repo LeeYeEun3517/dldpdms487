@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyCloset2</title>
+    <style>
+        *{
+            margin: 0; padding: 0; box-sizing: border-box; font-family: 'Gothic A1', sans-serif;
+            text-decoration: none; list-style: none;
+        }
+        #header{
+           width: 794px;
+           height: 70px;
+           display: block;
+           margin-left: auto;
+           margin-right: auto;
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+        }
+        #header .nav_logo{
+            width: 80px;
+            height: 32px;
+        }
+        .nav_menu li a{
+            color: #757575;
+            text-transform:uppercase;
+            vertical-align: middle;
+        }
+        .nav_menu {
+            display: flex;
+            margin-top: 4px;
+        }
+        .nav_menu li{
+            padding: 8px 20px;
+            font-size: 14px;
+        }
+        .nav_icon{
+            display: flex;
+            margin-top: 4px;
+        }
+        .nav_icon li{
+            padding: 8px 12px;
+        }
+        .nav_icon li a{
+            width: 20px;
+            height: 20px;
+        }
+        .nav_menu li a:after {
+        display:block;
+        content: '';
+        border-bottom: solid 3px #ffc400;  
+        transform: scaleX(0);  
+        transition: 350ms ease-in-out;
+        }
+        .nav_menu li a:hover:after { transform: scaleX(1);  }
+        .nav_menu li a:after{  transform-origin:  0% 50%; }
+        #banner{
+            height: 440px;
+            background-image: url(https://i.postimg.cc/8PsvNtmB/banner2.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+           
+        }
+        .arrow img{
+           padding-top: 176px;
+        }
+        .arrow .right{
+            float: right;
+            padding-right: 40px;
+            opacity: 0.5;
+        }
+        .arrow .left{
+            float: left;
+            padding-left: 40px;
+            opacity: 0.5;
+        }
+        #beststyle{
+            width: 996px;
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .besttitle{
+            margin-top: 80px;
+            padding-bottom: 100px;
+        }
+        .besttitle ul{
+            text-align: center;
+        }
+        .besttitle ul li{
+            float: left;
+        }
+        .besttitle ul li a{
+            color: #7c7c7c;
+            padding: 0px 18px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        .besttitle ul li a:hover{
+            color: #ffbb00;
+            transition: 0.3s ease;
+        }
+        .besttitle ul li:not(:last-child){
+            border-right: 1px solid #cacaca;
+        }
+        .bestimg{
+            position: relative;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            height: 860px;
+            margin-bottom: 100px;
+        }
+        .bestimg .besttext{
+            position: absolute;
+        }
+        .bestimg .blackup{
+            position: absolute;
+            left: 500px;
+        }
+        .blackup img{
+            position: absolute;
+        }
+        .leez img{
+            position: absolute;
+        }
+        .nonecode img{
+            position: absolute;
+        }
+        .blackup2{
+            left: 200px;
+            top: 90px;
+        }
+        .blackuplogo{
+            top: 344px;
+            left: 60px;
+        }
+        .bestimg .leez{
+            position: absolute;
+            top: 280px;
+        }
+        .leez2{
+            top: 164px;
+        }
+        .leez1{
+            top: 68px;
+            left: 135px;
+        }
+        .leezlogo{
+            top: 104px;
+        }
+        .bestimg .nonecode{
+            position: absolute;
+            left: 500px;
+            top: 400px;
+        }
+        .besttext{
+            top: 40px;
+            left: 100px;
+        }
+        .besttext h1{
+            font-size: 56px;
+            color: #7a7a7a;
+            font-weight: 300;
+            line-height: 54px;
+        }
+        .besttext h2{
+            font-size: 28px;
+            color: #464646;
+            line-height: 50px;
+            font-weight: 400;
+        }
+        .nc1{
+            top: 75px;
+            left: 180px;
+        }
+        .nc2{
+            top: 144px;
+        }
+        .nclogo{
+            top: 263px;
+            left: 53px;
+        }
+        .bestimg .leez{
+            transition: all 0.3s ease-in-out;
+        }
+        .bestimg .leez:hover{
+            transform: scale(1.03);
+            -webkit-transform: scale(1.03);
+            -moz-transform: scale(1.03);
+            -ms-transform: scale(1.03);
+            -o-transform: scale(1.03);
+        }
+        .bestimg .nonecode{
+            transition: all 0.3s ease-in-out;
+        }
+        .bestimg .nonecode:hover{
+            transform: scale(1.03);
+            -webkit-transform: scale(1.03);
+            -moz-transform: scale(1.03);
+            -ms-transform: scale(1.03);
+            -o-transform: scale(1.03);
+        }
+        .bestimg .blackup{
+            transition: all 0.3s ease-in-out;
+        }
+        .bestimg .blackup:hover{
+            transform: scale(1.03);
+            -webkit-transform: scale(1.03);
+            -moz-transform: scale(1.03);
+            -ms-transform: scale(1.03);
+            -o-transform: scale(1.03);
+        }
+        #content{
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+            width: 996px;
+            position: relative;
+        }
+        .contenttitle{
+            text-align: center;
+            width: 100%;
+        }
+        .contentlogo{
+            margin-bottom: 8px;
+            width: 80px;
+        }
+        .contenticon h2{
+            font-size: 12px;
+            color: #4E4E4E;
+            font-weight: 300;
+        }
+        .contenticon a{
+            float: right;
+            color: #7A7A7A;
+            font-size: 12px;
+            margin-right: 20px;
+            margin-bottom: 38px;
+        }
+        .contenticon a img{
+            padding-right: 4px;
+            width: 16px;
+        }
+        .gray{
+            color: #808080;
+            font-size: 14px;
+            font-weight: 200;
+        }
+        .content1{
+            margin-top: 60px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .content1 a h1{
+            font-size: 18px;
+            color: #2D2D2D;
+            font-weight: 500;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 6px;
+        }
+        .content1 a h2{
+            font-size: 14px;
+            margin-bottom: 4px;
+            text-align: center;
+            font-weight: 500;
+            color: #2D2D2D;
+        }
+        .content1 a p{
+            color: #474747;
+            font-size: 14px;
+            text-align: center;
+            font-weight: 300;
+        }
+        .content2{
+            margin-top: 60px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .content2 a h1{
+            font-size: 18px;
+            color: #2D2D2D;
+            font-weight: 500;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 6px;
+        }
+        .content2 a h2{
+            font-size: 14px;
+            margin-bottom: 4px;
+            text-align: center;
+            font-weight: 500;
+            color: #2D2D2D;
+        }
+        .content2 a p{
+            color: #474747;
+            font-size: 14px;
+            text-align: center;
+            font-weight: 300;
+        }
+        .content2{
+            margin-bottom: 80px;
+        }
+        .content1 :hover img{
+            transform: scale(1.03);
+            transition: 0.5s;
+        }
+        .content1 img{
+            transform:scale(1.0);
+            transition: .5s;
+        }
+        .content2 :hover img{
+            transform: scale(1.03);
+            transition: 0.5s;
+        }
+        .content2 img{
+            transform:scale(1.0);
+            transition: .5s;
+        }
+        .page{
+            text-align: center;
+            color: #5F5F5F;
+        }
+        #test{
+            margin-top: 80px;
+            background-image: url(https://i.postimg.cc/L4rPwhqy/realtest.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 1200px;
+            height: 400px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            margin-bottom: 100px;
+        }
+        #test h1{
+            position: absolute;
+            color: white;
+            font-size: 32px;
+            font-weight: 500;
+            top: 84px;
+            left: 635px;
+        }
+        #test p{
+            position: absolute;
+            color: white;
+            font-size: 20px;
+            font-weight: 200;
+            top: 148px;
+            left: 609px;
+            text-align: center;
+        }
+        #test h2{
+            position: absolute;
+            color: white;
+            font-size: 16px;
+            font-weight: 200;
+            left: 714px;
+            top: 272px;
+            padding: 10px 25px;
+            border: 2px solid white;
+            border-radius: 30px;
+        }
+        #test h3{
+            position: absolute;
+            color: white;
+            font-size: 16px;
+            font-weight: 200;
+            top: 272px;
+            left: 884px;
+            padding: 10px 25px;
+            border: 2px solid white;
+            border-radius: 30px;
+        }
+        #test a :hover{
+            border: 2px solid gray;
+            color: gray;
+            transition: 0.3s ease;
+        }
+        #footer{
+            background-color: #505050;
+            height: 320px;
+            text-align: center;
+        }
+        #footer .sns{
+            padding-top: 60px;
+            padding-bottom: 36px;
+        }
+        .sns a{
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+        .footernav{
+            padding-bottom: 36px;
+        }
+        .footernav a{
+            text-align: center;
+            color: white;
+            font-weight: 100;
+            font-size: 14px;
+        }
+        .footerinfo{
+            color: white;
+            font-weight: 100;
+            font-size: 14px;
+        }
+        .small{
+            font-size: 10px;
+        }
+    </style>
+     <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="header">
+        <div class="nav_logo">
+            <A href="index1.html">
+                <img src="https://i.postimg.cc/B6hWBGn3/image.png" alt="logo">
+            </A>
+        </div>
+        <ul class="nav_menu">
+            <li><a href="index2.html">Women</a></li>
+            <li><a href="#">Men</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="index3.html">Lookbook</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+        <ul class="nav_icon">
+            <li>
+                <a href="#" >
+                    <img src="https://i.postimg.cc/QCc8DJGC/heart.png">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="https://i.postimg.cc/W3dsf7Yx/account-circle-FILL0-wght400-GRAD0-opsz48-1.png">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="https://i.postimg.cc/qBCksj33/search-FILL0-wght400-GRAD0-opsz48-1.png">
+                </a>
+            </li>
+        </ul>
+    </div>
+        <div id="banner">
+        <div class="arrow">
+            <a href="#"><img src="https://i.postimg.cc/X7GykK4x/image.png" class="left"></a>
+            <a href="#"><img src="https://i.postimg.cc/VLx0GSNw/image.png" class="right"></a>
+        </div>
+        </div>
+    <div id="beststyle">
+        <div class="besttitle">
+            <ul>
+                <li><a href="#">스포티</a></li>
+                <li><a href="#">클래식</a></li>
+                <li><a href="#">캐주얼</a></li>
+                <li><a href="#">스트릿</a></li>
+                <li><a href="#">미니멀</a></li>
+                <li><a href="#">톰보이</a></li>
+                <li><a href="#">빈티지</a></li>
+                <li><a href="#">모던</a></li>
+                <li><a href="#">보헤미안</a></li>
+                <li><a href="#">페미닌</a></li>
+                <li><a href="#">아메카지</a></li>
+                <li><a href="#">펑크</a></li>
+            </ul>
+        </div>
+        <div class="bestimg">
+            <div class="besttext">
+                <h2>JUNE,</h2>
+                <h1>BEST<br>
+                    STREET</h1>
+                <h2>SHOPPING MALL</h2>
+            </div>
+            <a href="https://black-up.kr/" target="_blank">
+            <div class="blackup">
+                <img src="https://i.postimg.cc/wBWR5yXH/best1.png" class="blackup1">
+                <img src="https://i.postimg.cc/KzSSHQr5/best2.png" class="blackup2">
+                <img src="https://i.postimg.cc/TPvt8sFh/best3.png" class="blackuplogo">
+            </div>
+            </a>
+            <a href="https://leezbecoming.com/" target="_blank">
+            <div class="leez">
+                <img src="https://i.postimg.cc/DyMxy0JW/lez.png" class="leez1">
+                <img src="https://i.postimg.cc/d3Sj1N1M/lez2.png" class="leez2">
+                <img src="https://i.postimg.cc/66SHBTG8/lez33.png" class="leezlogo">
+            </div>
+            </a>
+            <a href="https://noncode.co.kr/" target="_blank">
+            <div class="nonecode">
+                <img src="https://i.postimg.cc/pXhDCZrT/nc1.png" class="nc1">
+                <img src="https://i.postimg.cc/8zLLQzhg/nc2.png" class="nc2">
+                <img src="https://i.postimg.cc/d0vrqcBk/nc3.png" class="nclogo">
+            </div>
+            </a>
+        </div>
+        </div>
+        <div id="content">
+            <div class="contenttitle">
+                <img src="https://i.postimg.cc/7htg1Shr/image-107.png" class="contentlogo">
+                <div class="contenticon">
+                <h2>STREET FASHION</h2>
+                <a href="#"><img src="https://i.postimg.cc/Qx5QKKDw/filter-alt-FILL0-wght400-GRAD0-opsz48-1.png">Filter</a>
+                <a href="#"><img src="https://i.postimg.cc/qq2NqnKG/sort-FILL0-wght400-GRAD0-opsz48-1.png">Sort Option</a>
+                </div>
+            </div>
+            <div class="contentbox">
+                <div class="content1">
+                    <a href="#">
+                        <img src="https://i.postimg.cc/9QvxTHwF/content1.png">
+                        <h1>로컬맨션</h1>
+                        <h2>★ 4.3<span class="gray">/5</span>
+                        <br>회원 92,236명</h2>
+                        <p>힙하면서도 단정한<br>
+                        유니크 스타일 </p>
+                    </a>
+                    <a href="#">
+                        <img src="https://i.postimg.cc/LsDynCfx/222222.png">
+                        <h1>스컬프터</h1>
+                        <h2>★ 4.1<span class="gray">/5</span>
+                        <br>회원 186,652명</h2>
+                        <p>가성비 좋은 스트릿
+                        <br>브랜드 디자인 제품</p>
+                    </a>
+                    <a href="#">
+                        <img src="https://i.postimg.cc/zfx99XdD/33333.png">
+                        <h1>미스치프</h1>
+                        <h2>★ 4.2<span class="gray">/5</span>
+                        <br>회원 197,117명</h2>
+                        <p>독특한 디자인
+                            <br>44사이즈 회원 추천</p>
+                    </a>
+                    <a href="#">
+                        <img src="https://i.postimg.cc/pLZ7FLMQ/4444.png">
+                        <h1>언블랭크</h1>
+                        <h2>★ 4.4<span class="gray">/5</span>
+                        <br>회원 87,414명</h2>
+                        <p>트렌디하고 감각적인
+                            <br>코디의 쇼핑몰</p>
+                    </a>
+                </div>
+                <div class="content2">
+                    <a href="#">
+                        <img src="https://i.postimg.cc/Ls4st5Ym/5555.png">
+                        <h1>애니원모어</h1>
+                        <h2>★ 4.6<span class="gray">/5</span>
+                        <br>회원 122,242명</h2>
+                        <p>데일리웨어, 모던스트릿,<br>
+                            유니크, 블랙무드 쇼핑몰
+                        </p>
+                    </a>
+                    <a href="#">
+                        <img src="https://i.postimg.cc/prjVWn7J/666666.png">
+                        <h1>므넴</h1>
+                        <h2>★ 4.1<span class="gray">/5</span>
+                        <br>회원 112,667명</h2>
+                        <p>모던, 유니크, 미니멀,<br>
+                            데일리 쇼핑몰</p>
+                    </a>
+                    <a href="#">
+                        <img src="https://i.postimg.cc/bwgywP6W/77777.png">
+                        <h1>라걸</h1>
+                        <h2>★ 4.4<span class="gray">/5</span>
+                        <br>회원 121,612명</h2>
+                        <p>20대 여성에게
+                          <br>대중적인 스트릿 룩</p>
+                    </a>
+                    <a href="#">
+                        <img src="https://i.postimg.cc/N0PQR4vx/888888.png">
+                        <h1>트렌디</h1>
+                        <h2>★ 4.0<span class="gray">/5</span>
+                        <br>회원 57,004명</h2>
+                        <p>걸스 힙합 쇼핑몰<br>
+                        방송댄스, 댄스복 판매</p>
+                    </a>
+                    
+                    
+                </div>
+                <a href="#" class="page"><p>1 &nbsp;  2  &nbsp; 3 &nbsp;   4 &nbsp;  5 &nbsp; &gt; </p></a>
+            </div>
+        </div>
+        <div id="test">
+            <h1>나의 패션 성향을 모르겠다면?</h1>
+            <p>패션 성향 테스트를 통해 나의 패션 스타일을 알아본다.<br>
+                나와 어울리는 패션을 알아보고, 분석해보자!</p>
+            <a href="#"><h2>START</h2></a>
+            <a href="#"><h3>SHARE</h3></a>
+        </div>
+        <div id="footer">
+            <div class="sns">
+                <a href="https://www.facebook.com/" target="_blank"><img src="https://i.postimg.cc/d0J1sc7f/vpqnr.png"></a>
+                <a href="https://www.instagram.com/" target="_blank"><img src="https://i.postimg.cc/gj3jczKf/Instagram.png"></a>
+                <a href="https://twitter.com/?lang=ko" target="_blank"><img src="https://i.postimg.cc/05Sb0nqc/Twiiter.png"></a>
+            </div>
+            <div class="footernav">
+                <a href="#"><p>My Closet 소개 ㅣ 이용약관 ㅣ 개인정보 처리방침  ㅣ 사이트맵 ㅣ 인재채용</p></a>
+            </div>
+            <div class="footerinfo">
+                <p>사업자 등록번호 : 231-33-1253 ㅣ 통신판매업신고번호 : 제5142-서울마포-2322호<br>
+                    연락처 : 02) 6041-5325 ㅣ 팩스 : 321-1524-5342 ㅣ 이메일 : tuk@naver.com<br>
+                    주소 : 서울특별시 마포구 동교로 126 태양빌딩 3F<br><br>
+                    <span class="small">CopyrightⓒMYCLOSET Corp. All Rights Reserved</span></p>
+            </div>
+        </div>
+</body>
+</html>
